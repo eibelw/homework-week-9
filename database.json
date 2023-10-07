@@ -1,0 +1,10 @@
+{
+    "dev": {
+      "driver": "pg",
+      "user": "postgres",
+      "password": "user",
+      "host": "localhost",
+      "database": "HW9"
+    }
+  }
+  
