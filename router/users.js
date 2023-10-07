@@ -3,13 +3,13 @@ const router = express.Router();
 var users = require("../database.js");
 
 const authMiddleware = (request, response, next) => {
-    console.log(request.headers);
-    if (request.headers["token"] === "rahasia") {
-      next();
-    } else {
-      response.send({ message: "Unauthorized" });
-    }
-  };
+  console.log(request.headers);
+  if (request.headers["token"] === "rahasia") {
+    next();
+  } else {
+    response.send({ message: "Unauthorized" });
+  }
+};
 
 router.get("/", authMiddleware, (req, res) => {
   const limit = req.query.limit || 10;
@@ -17,6 +17,9 @@ router.get("/", authMiddleware, (req, res) => {
     if (err) {
       throw err;
     }
+    const responseData = {
+      data: result.rows,
+    };
     res.send(result);
   });
 });
