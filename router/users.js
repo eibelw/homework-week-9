@@ -20,7 +20,7 @@ router.get("/", authMiddleware, (req, res) => {
     const responseData = {
       data: result.rows,
     };
-    res.send(result);
+    res.send(responseData);
   });
 });
 
